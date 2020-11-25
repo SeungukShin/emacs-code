@@ -36,7 +36,7 @@
 			{
 				"title": "Emacs for Code",
 				"properties": {
-					"emacsCode.logLevel": {
+					"emacs-code.logLevel": {
 						"type": "string",
 						"default": "E",
 						"enum": [
@@ -50,7 +50,7 @@
 							"Information"
 						]
 					},
-					"emacsCode.maxBuffer": {
+					"emacs-code.maxBuffer": {
 						"type": "number",
 						"default": 10,
 						"description": "Max. buffer size for output from cscope in MB."
