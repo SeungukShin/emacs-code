@@ -7,3 +7,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 ### Added
 - Add find-file function.
+- Add key bindings - moving cursor (forward, backward, up, and down), search, save file, copy, cut, and paste
