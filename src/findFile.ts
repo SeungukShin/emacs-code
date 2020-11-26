@@ -78,7 +78,7 @@ export class FindFile implements vscode.Disposable {
 			this.quickPick.onDidAccept(() => {
 				const item = this.quickPick.selectedItems[0];
 				if (item) {
-					if ((item.type & vscode.FileType.Directory) && (item.file != '.')) {
+					if ((item.type & vscode.FileType.Directory) && (item.file !== '.')) {
 						this.quickPick.value = '';
 						this.currentDirectory = path.join(this.currentDirectory, item.file);
 						this.prepare();
@@ -122,6 +122,10 @@ export class FindFile implements vscode.Disposable {
 					} else {
 						this.currentDirectory = vscode.env.appRoot;
 					}
+					this.prepare();
+				} else if (e.length == 3 && e[1] === ':' && process.platform === 'win32') {
+					this.quickPick.value = '';
+					this.currentDirectory = e;
 					this.prepare();
 				} else {
 					const file = e.slice(0, e.length - 1);
