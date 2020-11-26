@@ -8,7 +8,6 @@ import { resolve } from 'dns';
 
 enum EmacsMode {
 	none = 'none',
-	normal = 'normal',
 	line = 'line',
 	column = 'column'
 }
@@ -28,8 +27,11 @@ export class Emacs implements vscode.Disposable {
 
 		// Register Commands
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.find.file', () => this.findFile()));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.clear.mode', () => this.toggleMode(EmacsMode.none)));
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.toggle.mode.line', () => this.toggleMode(EmacsMode.line)));
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.toggle.mode.column', () => this.toggleMode(EmacsMode.column)));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.copy', () => this.copy()));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.kill', () => this.kill()));
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.kill.line', () => this.killLine()));
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.search.forward', () => this.search('search forward: ')));
 		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.search.backward', () => this.search('search backward: ')));
@@ -47,6 +49,16 @@ export class Emacs implements vscode.Disposable {
 			this.mode = mode;
 		}
 		vscode.window.setStatusBarMessage('emacs: ' + this.mode, 5000);
+	}
+
+	copy(): void {
+		vscode.commands.executeCommand('editor.action.clipboardCopyAction');
+		this.toggleMode(EmacsMode.none);
+	}
+
+	kill(): void {
+		vscode.commands.executeCommand('editor.action.clipboardCutAction');
+		this.toggleMode(EmacsMode.none);
 	}
 
 	killLine(): void {

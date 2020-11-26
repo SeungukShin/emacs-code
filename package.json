@@ -27,8 +27,10 @@
 			}
 		],
 		"keybindings": [
-			{ "key": "ctrl+p",				"command": "notebook.focusPreviousEditor",						"when": "editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'" },
 			{ "key": "ctrl+p",				"command": "cursorUp",											"when": "textInputFocus" },
+			{ "key": "ctrl+p",				"command": "cursorUpSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+p",				"command": "cursorColumnSelectUp",								"when": "textInputFocus && emacsMode == 'column'" },
+			{ "key": "ctrl+p",				"command": "notebook.focusPreviousEditor",						"when": "editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'" },
 			{ "key": "ctrl+p",				"command": "history.showPrevious",								"when": "historyNavigationEnabled && historyNavigationWidget" },
 			{ "key": "ctrl+p",				"command": "list.focusUp",										"when": "listFocus && !inputFocus" },
 			{ "key": "ctrl+p",				"command": "notifications.focusPreviousToast",					"when": "notificationFocus && notificationToastsVisible" },
@@ -38,9 +40,11 @@
 			{ "key": "ctrl+p",				"command": "workbench.action.interactivePlayground.arrowUp",	"when": "interactivePlaygroundFocus && !editorTextFocus" },
 			{ "key": "ctrl+p",				"command": "workbench.statusBar.focusPrevious",					"when": "statusBarFocused" },
 
+			{ "key": "ctrl+n",				"command": "cursorDown",										"when": "textInputFocus" },
+			{ "key": "ctrl+n",				"command": "cursorDownSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+n",				"command": "cursorColumnSelectDown",							"when": "textInputFocus && emacsMode == 'column'" },
 			{ "key": "ctrl+n",				"command": "notebook.focusNextEditor",							"when": "editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'" },
 			{ "key": "ctrl+n",				"command": "breadcrumbs.selectFocused",							"when": "breadcrumbsActive && breadcrumbsVisible" },
-			{ "key": "ctrl+n",				"command": "cursorDown",										"when": "textInputFocus" },
 			{ "key": "ctrl+n",				"command": "history.showNext",									"when": "historyNavigationEnabled && historyNavigationWidget" },
 			{ "key": "ctrl+n",				"command": "keybindings.editor.focusKeybindings",				"when": "inKeybindings && inKeybindingsSearch" },
 			{ "key": "ctrl+n",				"command": "list.focusDown",									"when": "listFocus && !inputFocus" },
@@ -53,24 +57,77 @@
 			{ "key": "ctrl+n",				"command": "workbench.action.interactivePlayground.arrowDown",	"when": "interactivePlaygroundFocus && !editorTextFocus" },
 			{ "key": "ctrl+n",				"command": "workbench.statusBar.focusNext",						"when": "statusBarFocused" },
 
+			{ "key": "ctrl+b",				"command": "cursorLeft",										"when": "textInputFocus" },
+			{ "key": "ctrl+b",				"command": "cursorLeftSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+b",				"command": "cursorColumnSelectLeft",							"when": "textInputFocus && emacsMode == 'column" },
 			{ "key": "ctrl+b",				"command": "notebook.fold",										"when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'" },
 			{ "key": "ctrl+b",				"command": "settings.action.focusTOC",							"when": "inSettingsEditor && settingRowFocus" },
 			{ "key": "ctrl+b",				"command": "breadcrumbs.focusPrevious",							"when": "breadcrumbsActive && breadcrumbsVisible" },
-			{ "key": "ctrl+b",				"command": "cursorLeft",										"when": "textInputFocus" },
 			{ "key": "ctrl+b",				"command": "gitlens.key.left",									"when": "gitlens:key:left" },
 			{ "key": "ctrl+b",				"command": "list.collapse",										"when": "listFocus && !inputFocus" },
 			{ "key": "ctrl+b",				"command": "notification.collapse",								"when": "notificationFocus" },
 			{ "key": "ctrl+b",				"command": "previousCompressedFolder",							"when": "explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedFirstFocus && !inputFocus" },
 			{ "key": "ctrl+b",				"command": "workbench.statusBar.focusPrevious",					"when": "statusBarFocused" },
 
+			{ "key": "ctrl+f",				"command": "cursorRight",										"when": "textInputFocus" },
+			{ "key": "ctrl+f",				"command": "cursorRightSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+f",				"command": "cursorColumnSelectRight",							"when": "textInputFocus && emacsMode == 'column'" },
 			{ "key": "ctrl+f",				"command": "notebook.unfold",									"when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'" },
 			{ "key": "ctrl+f",				"command": "breadcrumbs.focusNext",								"when": "breadcrumbsActive && breadcrumbsVisible" },
-			{ "key": "ctrl+f",				"command": "cursorRight",										"when": "textInputFocus" },
 			{ "key": "ctrl+f",				"command": "gitlens.key.right",									"when": "gitlens:key:right" },
 			{ "key": "ctrl+f",				"command": "list.expand",										"when": "listFocus && !inputFocus" },
 			{ "key": "ctrl+f",				"command": "nextCompressedFolder",								"when": "explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedLastFocus && !inputFocus" },
 			{ "key": "ctrl+f",				"command": "notification.expand",								"when": "notificationFocus" },
 			{ "key": "ctrl+f",				"command": "workbench.statusBar.focusNext",						"when": "statusBarFocused" },
+
+			{ "key": "alt+b",				"command": "cursorWordLeft",									"when": "textInputFocus" },
+			{ "key": "alt+b",				"command": "cursorWordLeftSelect",								"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "alt+b",				"command": "breadcrumbs.focusPrevious",							"when": "breadcrumbsActive && breadcrumbsVisible" },
+			{ "key": "alt+b",				"command": "breadcrumbs.focusPreviousWithPicker",				"when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus" },
+			{ "key": "alt+b",				"command": "list.collapseAll",									"when": "listFocus && !inputFocus" },
+
+			{ "key": "alt+f",				"command": "cursorWordEndRight",								"when": "textInputFocus" },
+			{ "key": "alt+f",				"command": "cursorWordEndRightSelect",							"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "alt+f",				"command": "breadcrumbs.focusNext",								"when": "breadcrumbsActive && breadcrumbsVisible" },
+			{ "key": "alt+f",				"command": "breadcrumbs.focusNextWithPicker",					"when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus" },
+
+			{ "key": "ctrl+a",				"command": "cursorHome",										"when": "textInputFocus" },
+			{ "key": "ctrl+a",				"command": "cursorHomeSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+a",				"command": "firstCompressedFolder",								"when": "explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedFirstFocus && !inputFocus" },
+			{ "key": "ctrl+a",				"command": "list.focusFirst",									"when": "listFocus && !inputFocus" },
+			{ "key": "ctrl+a",				"command": "notifications.focusFirstToast",						"when": "notificationFocus && notificationToastsVisible" },
+			{ "key": "ctrl+a",				"command": "workbench.statusBar.focusFirst",					"when": "statusBarFocused" },
+
+			{ "key": "ctrl+e",				"command": "cursorEnd",											"when": "textInputFocus" },
+			{ "key": "ctrl+e",				"command": "cursorEndSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+e",				"command": "lastCompressedFolder",								"when": "explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedLastFocus && !inputFocus" },
+			{ "key": "ctrl+e",				"command": "list.focusLast",									"when": "listFocus && !inputFocus" },
+			{ "key": "ctrl+e",				"command": "notifications.focusLastToast",						"when": "notificationFocus && notificationToastsVisible" },
+			{ "key": "ctrl+e",				"command": "workbench.statusBar.focusLast",						"when": "statusBarFocused" },
+
+			{ "key": "alt+v",				"command": "cursorPageUp",										"when": "textInputFocus" },
+			{ "key": "alt+v",				"command": "cursorPageUpSelect",								"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "alt+v",				"command": "cursorColumnSelectPageUp",							"when": "textInputFocus && emacsMode == 'column'" },
+			{ "key": "alt+v",				"command": "list.focusPageUp",									"when": "listFocus && !inputFocus" },
+			{ "key": "alt+v",				"command": "notifications.focusFirstToast",						"when": "notificationFocus && notificationToastsVisible" },
+			{ "key": "alt+v",				"command": "selectPrevPageSuggestion",							"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+			{ "key": "alt+v",				"command": "workbench.action.interactivePlayground.pageUp",		"when": "interactivePlaygroundFocus && !editorTextFocus" },
+
+			{ "key": "ctrl+v",				"command": "cursorPageDown",									"when": "textInputFocus" },
+			{ "key": "ctrl+v",				"command": "cursorPageDownSelect",								"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "ctrl+v",				"command": "cursorColumnSelectPageDown",						"when": "textInputFocus && emacsMode == 'column'" },
+			{ "key": "ctrl+v",				"command": "list.focusPageDown",								"when": "listFocus && !inputFocus" },
+			{ "key": "ctrl+v",				"command": "notifications.focusLastToast",						"when": "notificationFocus && notificationToastsVisible" },
+			{ "key": "ctrl+v",				"command": "selectNextPageSuggestion",							"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus" },
+			{ "key": "ctrl+v",				"command": "workbench.action.interactivePlayground.pageDown",	"when": "interactivePlaygroundFocus && !editorTextFocus" },
+
+			{ "key": "alt+shift+,",			"command": "cursorTop",											"when": "textInputFocus" },
+			{ "key": "alt+shift+,",			"command": "cursorTopSelect",									"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "alt+shift+,",			"command": "notebook.focusTop",									"when": "notebookEditorFocused && !inputFocus" },
+
+			{ "key": "alt+shift+.",			"command": "cursorBottom",										"when": "textInputFocus" },
+			{ "key": "alt+shift+.",			"command": "cursorBottomSelect",								"when": "textInputFocus && emacsMode == 'line'" },
+			{ "key": "alt+shift+.",			"command": "notebook.focusBottom",								"when": "notebookEditorFocused && !inputFocus" },
 
 			{ "key": "ctrl+s",				"command": "actions.find",										"when": "editorFocus || editorIsOpen" },
 			{ "key": "ctrl+s",				"command": "settings.action.search",							"when": "inSettingsEditor" },
@@ -84,10 +141,10 @@
 
 			{ "key": "ctrl+x ctrl+s",		"command": "workbench.action.files.save" },
 
-			{ "key": "ctrl+w",				"command": "editor.action.clipboardCutAction" },
+			{ "key": "ctrl+w",				"command": "emacs-code.kill" },
 			{ "key": "ctrl+w",				"command": "filesExplorer.cut",									"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus" },
 
-			{ "key": "alt+w",				"command": "editor.action.clipboardCopyAction" },
+			{ "key": "alt+w",				"command": "emacs-code.copy" },
 			{ "key": "alt+w",				"command": "gitlens.views.compare.copy",						"when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.compare/" },
 			{ "key": "alt+w",				"command": "gitlens.views.fileHistory.copy",					"when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.fileHistory/" },
 			{ "key": "alt+w",				"command": "gitlens.views.lineHistory.copy",					"when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.lineHistory/" },
@@ -102,7 +159,39 @@
 			{ "key": "ctrl+y",				"command": "editor.action.clipboardPasteAction" },
 			{ "key": "ctrl+y",				"command": "filesExplorer.paste",								"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus" },
 
-			{ "key": "ctrl+x ctrl+f",		"command": "extension.emacs-code.find.file" }
+			{ "key": "alt+g g",				"command": "workbench.action.gotoLine" },
+
+			{ "key": "ctrl+d",				"command": "notebook.cell.delete",								"when": "notebookEditorFocused && !inputFocus" },
+			{ "key": "ctrl+d",				"command": "debug.removeBreakpoint",							"when": "breakpointsFocused && !breakpointSelected" },
+			{ "key": "ctrl+d",				"command": "debug.removeWatchExpression",						"when": "watchExpressionsFocused && !expressionSelected" },
+			{ "key": "ctrl+d",				"command": "deleteFile",										"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus" },
+			{ "key": "ctrl+d",				"command": "deleteRight",										"when": "textInputFocus" },
+			{ "key": "ctrl+d",				"command": "keybindings.editor.removeKeybinding",				"when": "inKeybindings && keybindingFocus" },
+			{ "key": "ctrl+d",				"command": "moveFileToTrash",									"when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus" },
+			{ "key": "ctrl+d",				"command": "notification.clear",								"when": "notificationFocus" },
+			{ "key": "ctrl+d",				"command": "remote.tunnel.closeInline",							"when": "tunnelCloseable && tunnelViewFocus" },
+			{ "key": "ctrl+d",				"command": "search.action.remove",								"when": "fileMatchOrMatchFocus && searchViewletVisible" },
+
+			{ "key": "ctrl+x ctrl+f",		"command": "emacs-code.find.file" },
+
+			{ "key": "alt+x",				"command": "workbench.action.showCommands" },
+
+			{ "key": "ctrl+x b",			"command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup" },
+
+			{ "key": "ctrl+x k",			"command": "workbench.action.closeWindow",						"when": "!editorIsOpen && !multipleEditorGroups" },
+			{ "key": "ctrl+x k",			"command": "workbench.action.closeActiveEditor" },
+			{ "key": "ctrl+x k",			"command": "workbench.action.closeGroup",						"when": "activeEditorGroupEmpty && multipleEditorGroups" },
+
+			{ "key": "ctrl+x ctrl+c",		"command": "workbench.action.quit" },
+
+			{ "key": "ctrl+/",				"command": "undo" },
+
+			{ "key": "ctrl+x ctrl+;",		"command": "editor.action.commentLine",							"when": "editorTextFocus && !editorReadonly" },
+			{ "key": "ctrl+x ctrl+;",		"command": "toggleExplainMode",									"when": "suggestWidgetVisible" },
+
+			{ "key": "ctrl+space",			"command": "emacs-code.toggle.mode.line" },
+			{ "key": "ctrl+enter",			"command": "emacs-code.toggle.mode.column" },
+			{ "key": "escape",				"command": "emacs-code.clear.mode",								"when": "emacsMode == 'line' || emacsMode == 'column'" }
 		],
 		"configuration": [
 			{
