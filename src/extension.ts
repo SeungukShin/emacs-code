@@ -27,12 +27,12 @@ export class Emacs implements vscode.Disposable {
 		this.mode = EmacsMode.none;
 
 		// Register Commands
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.find.file', () => this.findFile()));
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.toggle.mode.normal', () => this.toggleMode(EmacsMode.normal)));
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.toggle.mode.column', () => this.toggleMode(EmacsMode.column)));
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.kill.line', () => this.killLine()));
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.search.forward', () => this.search('search forward: ')));
-		context.subscriptions.push(vscode.commands.registerCommand('extension.emacs-code.search.backward', () => this.search('search backward: ')));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.find.file', () => this.findFile()));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.toggle.mode.line', () => this.toggleMode(EmacsMode.line)));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.toggle.mode.column', () => this.toggleMode(EmacsMode.column)));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.kill.line', () => this.killLine()));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.search.forward', () => this.search('search forward: ')));
+		context.subscriptions.push(vscode.commands.registerCommand('emacs-code.search.backward', () => this.search('search backward: ')));
 	}
 
 	dispose(): void {

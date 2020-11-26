@@ -22,7 +22,7 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.emacs-code.find.file",
+				"command": "emacs-code.find.file",
 				"title": "Emacs Code: Find File"
 			}
 		],
