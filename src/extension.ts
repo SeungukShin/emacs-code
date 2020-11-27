@@ -40,41 +40,52 @@ export class Emacs implements vscode.Disposable {
 	dispose(): void {
 	}
 
-	toggleMode(mode: EmacsMode): void {
-		if (this.mode == mode) {
-			vscode.commands.executeCommand('setContext', 'emacsMode', EmacsMode.none);
-			this.mode = EmacsMode.none;
-		} else {
-			vscode.commands.executeCommand('setContext', 'emacsMode', mode);
-			this.mode = mode;
-		}
+	async toggleMode(mode: EmacsMode): Promise<void> {
+		await vscode.commands.executeCommand('cancelSelection');
+		const toMode = (this.mode == mode) ? EmacsMode.none : mode;
+		await vscode.commands.executeCommand('setContext', 'emacsMode', toMode);
+		this.mode = toMode;
 		vscode.window.setStatusBarMessage('emacs: ' + this.mode, 5000);
+		return Promise.resolve();
 	}
 
-	copy(): void {
-		vscode.commands.executeCommand('editor.action.clipboardCopyAction');
-		this.toggleMode(EmacsMode.none);
+	async copy(): Promise<void> {
+		await vscode.commands.executeCommand('editor.action.clipboardCopyAction');
+		await this.toggleMode(EmacsMode.none);
+		return Promise.resolve();
 	}
 
-	kill(): void {
-		vscode.commands.executeCommand('editor.action.clipboardCutAction');
-		this.toggleMode(EmacsMode.none);
-	}
-
-	killLine(): void {
+	async kill(): Promise<void> {
 		const editor = vscode.window.activeTextEditor;
-		if (!editor) {
-			return;
+		if (editor) {
+			const selection = editor.selection;
+			if (!selection.isEmpty) {
+				const text = editor.document.getText(selection);
+				await vscode.env.clipboard.writeText(text);
+				await editor.edit((editBuilder) => {
+					editBuilder.delete(selection);
+				});
+			}
 		}
-		vscode.commands.executeCommand('cancelSelection');
-		vscode.commands.executeCommand('cursorEndSelect');
-		const document = editor.document;
-		const selection = editor.selection;
-		if (selection.isEmpty) {
-			vscode.commands.executeCommand('deleteRight');
-		} else {
-			vscode.commands.executeCommand('editor.action.clipboardCutAction');
+//		await vscode.commands.executeCommand('editor.action.clipboardCutAction');
+		await this.toggleMode(EmacsMode.none);
+		return Promise.resolve();
+	}
+
+	async killLine(): Promise<void> {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			await vscode.commands.executeCommand('cancelSelection');
+			await vscode.commands.executeCommand('cursorEndSelect');
+			const document = editor.document;
+			const selection = editor.selection;
+			if (selection.isEmpty) {
+				await vscode.commands.executeCommand('deleteRight');
+			} else {
+				await vscode.commands.executeCommand('editor.action.clipboardCutAction');
+			}
 		}
+		return Promise.resolve();
 	}
 
 	private findWord(): string {
@@ -137,15 +148,14 @@ export class Emacs implements vscode.Disposable {
 		const result = await findFile.show();
 		if (result !== undefined) {
 			const file = vscode.Uri.file(result);
-			vscode.workspace.fs.stat(file).then((value) => {
-				if (value.type & vscode.FileType.Directory) {
-					vscode.commands.executeCommand('vscode.openFolder', file);
-				} else {
-					vscode.window.showTextDocument(file);
-				}
-				findFile.dispose();
-				Promise.resolve();
-			});
+			const stat = await vscode.workspace.fs.stat(file);
+			if (stat.type & vscode.FileType.Directory) {
+				await vscode.commands.executeCommand('vscode.openFolder', file);
+			} else {
+				await vscode.window.showTextDocument(file);
+			}
+			findFile.dispose();
+			Promise.resolve();
 		}
 	}
 }
