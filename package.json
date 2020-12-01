@@ -144,6 +144,8 @@
 			{ "key": "ctrl+w",				"command": "emacs-code.kill" },
 			{ "key": "ctrl+w",				"command": "filesExplorer.cut",									"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus" },
 
+			{ "key": "ctrl+k",				"command": "emacs-code.kill.line" },
+
 			{ "key": "alt+w",				"command": "emacs-code.copy" },
 			{ "key": "alt+w",				"command": "gitlens.views.compare.copy",						"when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.compare/" },
 			{ "key": "alt+w",				"command": "gitlens.views.fileHistory.copy",					"when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.fileHistory/" },
