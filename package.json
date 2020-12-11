@@ -130,6 +130,7 @@
 			{ "key": "alt+shift+.",			"command": "notebook.focusBottom",								"when": "notebookEditorFocused && !inputFocus" },
 
 			{ "key": "ctrl+s",				"command": "actions.find",										"when": "editorFocus || editorIsOpen" },
+			{ "key": "ctrl+s",				"command": "editor.action.nextMatchFindAction",					"when": "editorFocus && findInputFocussed" },
 			{ "key": "ctrl+s",				"command": "settings.action.search",							"when": "inSettingsEditor" },
 			{ "key": "ctrl+s",				"command": "repl.action.filter",								"when": "inDebugRepl && textInputFocus" },
 			{ "key": "ctrl+s",				"command": "workbench.action.terminal.focusFind",				"when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported" },
@@ -138,6 +139,9 @@
 			{ "key": "ctrl+s",				"command": "keybindings.editor.searchKeybindings",				"when": "inKeybindings" },
 			{ "key": "ctrl+s",				"command": "notebook.find",										"when": "notebookEditorFocused" },
 			{ "key": "ctrl+s",				"command": "problems.action.focusFilter",						"when": "focusedView == 'workbench.panel.markers.view'" },
+
+			{ "key": "ctrl+r",				"command": "actions.find",										"when": "editorFocus || editorIsOpen" },
+			{ "key": "ctrl+r",				"command": "editor.action.previousMatchFindAction",				"when": "editorFocus && findInputFocussed" },
 
 			{ "key": "ctrl+x ctrl+s",		"command": "workbench.action.files.save" },
 

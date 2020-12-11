@@ -4,6 +4,10 @@ All notable changes to the "emacs-code" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [Unreleased]
+### Added
+- Add key bindings. - search forward and backward
+
 ## [0.0.1]
 ### Added
 - Add key bindings. - moving cursor (forward, backward, up, and down), search, save file, copy, cut, and paste

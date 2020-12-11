@@ -56,9 +56,12 @@
 | `escape` | Clear mark or retangle mode | `emacs-code.clear.mode` |
 
 ### Searching
-| Key      | Description | Command        |
-|----------|-------------|----------------|
-| `ctrl+s` | find        | `actions.find` |
+| Key      | Description         | Command        |
+|----------|---------------------|----------------|
+| `ctrl+s` | Activate find input | `actions.find` |
+| `ctrl+s` | Find next match     | `actions.find` |
+| `ctrl+r` | Activate find input | `actions.find` |
+| `ctrl+r` | Find previous match | `actions.find` |
 
 ### Creating and Selecting Buffers
 | Key        | Description     | Command                                                       |
