@@ -182,7 +182,7 @@
 
 			{ "key": "alt+x",				"command": "workbench.action.showCommands" },
 
-			{ "key": "ctrl+x b",			"command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup" },
+			{ "key": "ctrl+x b",			"command": "workbench.action.quickOpen",						"args": "edt mru " },
 
 			{ "key": "ctrl+x k",			"command": "workbench.action.closeWindow",						"when": "!editorIsOpen && !multipleEditorGroups" },
 			{ "key": "ctrl+x k",			"command": "workbench.action.closeActiveEditor" },

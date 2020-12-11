@@ -8,6 +8,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 - Add key bindings. - search forward and backward
 
+### Changed
+- Change opened files list method.
+
 ## [0.0.1]
 ### Added
 - Add key bindings. - moving cursor (forward, backward, up, and down), search, save file, copy, cut, and paste
