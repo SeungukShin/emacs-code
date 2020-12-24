@@ -4,7 +4,6 @@ import { Execute } from './execute';
 import { Config } from './config';
 import { Log } from './log';
 import { FindFile } from './findFile';
-import { resolve } from 'dns';
 
 enum EmacsMode {
 	none = 'none',
