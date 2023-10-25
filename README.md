@@ -1,5 +1,5 @@
 # Emacs Extension for VS Code
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/SeungukShin/emacs-code/CI)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/SeungukShin/emacs-code/ci.yml)
 [![](https://img.shields.io/visual-studio-marketplace/v/SeungukShin.emacs-code)](https://marketplace.visualstudio.com/items?itemName=SeungukShin.emacs-code)
 ![install](https://img.shields.io/visual-studio-marketplace/i/SeungukShin.emacs-code)
 
