@@ -4,7 +4,14 @@ All notable changes to the "emacs-code" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.0.3]
+### Added
+- Add 'extensionKind' to execute this extension in local
+
+### Changed
+- Use open file dialog instead of quick pick because of `files.simpleDialog.enable`
+
+## [0.0.2]
 ### Added
 - Add key bindings. - search forward and backward
 

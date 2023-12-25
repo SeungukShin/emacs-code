@@ -2,8 +2,8 @@
 	"name": "emacs-code",
 	"displayName": "emacs-code",
 	"description": "Emacs Extension for Code",
-	"icon": "emacs.png",
-	"version": "0.0.2",
+	"icon": "resources/emacs.png",
+	"version": "0.0.3",
 	"publisher": "SeungukShin",
 	"repository": {
 		"type": "git",
@@ -17,6 +17,9 @@
 	],
 	"activationEvents": [
 		"*"
+	],
+	"extensionKind": [
+		"ui"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -178,7 +181,7 @@
 			{ "key": "ctrl+d",				"command": "remote.tunnel.closeInline",							"when": "tunnelCloseable && tunnelViewFocus" },
 			{ "key": "ctrl+d",				"command": "search.action.remove",								"when": "fileMatchOrMatchFocus && searchViewletVisible" },
 
-			{ "key": "ctrl+x ctrl+f",		"command": "emacs-code.find.file" },
+			{ "key": "ctrl+x ctrl+f",		"command": "workbench.action.files.openFile" },
 
 			{ "key": "alt+x",				"command": "workbench.action.showCommands" },
 
